@@ -1,7 +1,7 @@
 export default function AboutSection() {
   return (
     <>
-      <section className="py-24 px-4 md:px-16 flex flex-col md:flex-row items-center gap-12">
+      <section className="py-24 px-4 md:px-16 flex flex-col lg:flex-row items-center gap-12">
         <img
           src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
           alt="Photographer portrait"

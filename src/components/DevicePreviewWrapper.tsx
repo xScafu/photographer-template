@@ -28,7 +28,7 @@ export default function DevicePreviewWrapper({
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center gap-6">
-      <div className="flex gap-4">
+      <div className="flex gap-4 mt-8">
         <button
           onClick={() => setDevice("desktop")}
           className="bg-white px-4 py-2 rounded shadow hover:bg-gray-200"
@@ -49,7 +49,7 @@ export default function DevicePreviewWrapper({
         </button>
       </div>
 
-      <div className="flex items-center justify-center w-full h-full min-h-[900px]">
+      <div className="flex items-center justify-center w-full h-full">
         <div
           className={clsx(
             "relative shadow-2xl bg-white transition-all duration-500",
@@ -57,8 +57,10 @@ export default function DevicePreviewWrapper({
               ? "w-full h-full overflow-auto"
               : "border-[14px] rounded-[2rem] border-black overflow-auto",
             sizes[device],
-            hideScrollbar && device !== "desktop" && "hide-scrollbar",
-            "max-h-[695px]"
+            clsx(
+              hideScrollbar && device !== "desktop" && "hide-scrollbar",
+              device !== "desktop" && "max-h-[695px]"
+            )
           )}
         >
           <div className="w-full h-full">{children}</div>

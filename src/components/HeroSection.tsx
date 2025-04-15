@@ -34,7 +34,7 @@ export default function HeroSection() {
                 key={i}
                 src={url}
                 alt={`Grid ${i}`}
-                className="aspect-square object-cover shadow-md"
+                className="aspect-square object-cover shadow-md max-h-[390px] "
               />
             ))
           ) : (

@@ -3,7 +3,7 @@ export default function Footer() {
     <>
       <footer className="py-8 text-center text-sm text-gray-600">
         <p>
-          &copy; {new Date().getFullYear()} John Doe Photography — All rights
+          &copy; {new Date().getFullYear()} [Your Company Name] — All rights
           reserved
         </p>
       </footer>

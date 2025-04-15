@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "swiper/swiper-bundle.css";
 
+@theme {
+  --breakpoint-md: 768px;
+}
+
 .swiper-button-prev,
 .swiper-button-next {
   color: #016630;

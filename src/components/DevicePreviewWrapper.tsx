@@ -1,5 +1,7 @@
 import { useState, ReactNode } from "react";
+import { Button } from "primereact/button";
 import clsx from "clsx";
+import LogoVector from "./LogoVector";
 
 type DevicePreviewWrapperProps = {
   children: ReactNode;
@@ -28,25 +30,26 @@ export default function DevicePreviewWrapper({
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center gap-6">
-      <div className="flex gap-4 mt-8">
-        <button
+      <div className="flex items-center gap-4 mt-8">
+        <div className="w-12 xl:w-14 fill-black">
+          <LogoVector />
+        </div>
+        <h1>Check this page in various sizes: </h1>
+        <Button
+          icon="pi pi-desktop"
+          className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
           onClick={() => setDevice("desktop")}
-          className="bg-white px-4 py-2 rounded shadow hover:bg-gray-200"
-        >
-          Desktop
-        </button>
-        <button
+        />
+        <Button
+          icon="pi pi-tablet"
+          className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
           onClick={() => setDevice("tablet")}
-          className="bg-white px-4 py-2 rounded shadow hover:bg-gray-200"
-        >
-          Tablet
-        </button>
-        <button
+        />
+        <Button
+          icon="pi pi-mobile"
+          className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
           onClick={() => setDevice("mobile")}
-          className="bg-white px-4 py-2 rounded shadow hover:bg-gray-200"
-        >
-          Mobile
-        </button>
+        />
       </div>
 
       <div className="flex items-center justify-center w-full h-full">

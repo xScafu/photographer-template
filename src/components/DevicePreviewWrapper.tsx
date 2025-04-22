@@ -2,6 +2,7 @@ import { useState, ReactNode } from "react";
 import { Button } from "primereact/button";
 import clsx from "clsx";
 import LogoVector from "./LogoVector";
+import { useMediaQuery } from "react-responsive";
 
 type DevicePreviewWrapperProps = {
   children: ReactNode;
@@ -28,29 +29,34 @@ export default function DevicePreviewWrapper({
     "desktop"
   );
 
+  // Use media query to determine if the screen is desktop size
+  const isDesktop = useMediaQuery({ minWidth: 1024 });
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center gap-6">
-      <div className="flex items-center gap-4 mt-8">
-        <div className="w-12 xl:w-14 fill-black">
-          <LogoVector />
+      {isDesktop && ( // Show buttons only on desktop
+        <div className="flex items-center gap-4 mt-8">
+          <div className="w-12 xl:w-14 fill-black">
+            <LogoVector />
+          </div>
+          <h1>Check this page in various sizes: </h1>
+          <Button
+            icon="pi pi-desktop"
+            className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
+            onClick={() => setDevice("desktop")}
+          />
+          <Button
+            icon="pi pi-tablet"
+            className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
+            onClick={() => setDevice("tablet")}
+          />
+          <Button
+            icon="pi pi-mobile"
+            className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
+            onClick={() => setDevice("mobile")}
+          />
         </div>
-        <h1>Check this page in various sizes: </h1>
-        <Button
-          icon="pi pi-desktop"
-          className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
-          onClick={() => setDevice("desktop")}
-        />
-        <Button
-          icon="pi pi-tablet"
-          className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
-          onClick={() => setDevice("tablet")}
-        />
-        <Button
-          icon="pi pi-mobile"
-          className="bg-white shadow hover:bg-green-50 focus:bg-green-50 focus:outline-2 focus:outline-green-700 outline-offset-2 p-3 rounded-full w-10 h-10"
-          onClick={() => setDevice("mobile")}
-        />
-      </div>
+      )}
 
       <div className="flex items-center justify-center w-full h-full">
         <div
